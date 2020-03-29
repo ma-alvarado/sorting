@@ -46,6 +46,9 @@ def _merged(xs, ys, cmp=cmp_standard):
     and returns a new list containing the elements of both xs and ys.
     Runs in linear time.
     '''
+    
+    if xs ==[] and ys == []:
+        return None
     xsys = []
     if len(xs) == len(ys):
         for x in range(len(xs)):
@@ -56,8 +59,8 @@ def _merged(xs, ys, cmp=cmp_standard):
             if cmp_standard(xs[x],ys[x]) == 0:
                 xsys += [ys[x],xs[x]]
     return xsys
-
-
+    
+    
 def merge_sorted(xs, cmp=cmp_standard):
     '''
     Merge sort is the standard O(n log n) sorting algorithm.
