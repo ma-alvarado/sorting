@@ -1,4 +1,5 @@
 #!/bin/python3
+
 '''
 Python provides built-in sort/sorted functions that use timsort internally.
 You cannot use these built-in functions anywhere in this file.
@@ -39,8 +40,7 @@ def cmp_last_digit(a,b):
     '''
     return cmp_standard(a%10,b%10)
 
-
-def _merged(xs, ys, cmp=cmp_standard):
+def _merged(xs, ys, cmp):
     '''
     Assumes that both xs and ys are sorted,
     and returns a new list containing the elements of both xs and ys.
@@ -68,12 +68,11 @@ def _merged(xs, ys, cmp=cmp_standard):
     while j < len(ys):
         xsys.append(ys[j])
         j += 1
-    
+
     return xsys
 
-    
-    
-def merge_sorted(xs, cmp=cmp_standard):
+
+def merge_sorted(xs, cmp):
 
     if len(xs) == 0 or len(xs) == 1:
         return xs
@@ -83,10 +82,10 @@ def merge_sorted(xs, cmp=cmp_standard):
         lefthalf = xs[0:mid]
         righthalf = xs[mid:]
         
-        one = merge_sorted(lefthalf,cmp = cmp)
-        two = merge_sorted(righthalf,cmp = cmp)
+        one = merge_sorted(lefthalf,cmp)
+        two = merge_sorted(righthalf,cmp)
         
-        return _merged(one,two)
+        return _merged(one,two, cmp)
 
 def quick_sorted(xs, cmp=cmp_standard):
     '''
