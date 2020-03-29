@@ -58,29 +58,8 @@ def _merged(xs, ys, cmp=cmp_standard):
             if cmp_standard(xs[x],ys[x]) == 0:
                 xsys += [ys[x],xs[x]]
     else:
-        retudef _merged(xs, ys, cmp=cmp_standard):
-    '''
-    Assumes that both xs and ys are sorted,
-    and returns a new list containing the elements of both xs and ys.
-    Runs in linear time.
-    '''
-    if xs ==[] and ys == []:
-        return []
-    xsys = []
-    if len(xs) == len(ys):
-        for x in range(len(xs)):
-            if cmp_standard(xs[x],ys[x]) == -1:
-                xsys += [xs[x],ys[x]]
-            if cmp_standard(xs[x],ys[x]) == 1:
-                xsys += [ys[x],xs[x]]
-            if cmp_standard(xs[x],ys[x]) == 0:
-                xsys += [ys[x],xs[x]]
-    else:
         return []
 
-    return xsys
-rn []
-            
     return xsys
     
     
