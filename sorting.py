@@ -58,11 +58,7 @@ def _merged(xs, ys, cmp=cmp_standard):
             if cmp_standard(xs[x],ys[x]) == 0:
                 xsys += [ys[x],xs[x]]
     else:
-        if len(xs) == 0 and len(ys) != 0:
-            xsys += ys
-        
-        if len(ys) == 0 and len(xs) != 0:
-            xsys += xs
+        xsys += []
             
     return xsys
     
