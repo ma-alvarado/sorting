@@ -83,8 +83,8 @@ def merge_sorted(xs, cmp=cmp_standard):
         lefthalf = xs[0:mid]
         righthalf = xs[mid:]
         
-        one = merge_sorted(lefthalf,cmp)
-        two = merge_sorted(righthalf,cmp)
+        one = merge_sorted(lefthalf,cmp = cmp)
+        two = merge_sorted(righthalf,cmp = cmp)
         
         return _merged(one,two)
 
