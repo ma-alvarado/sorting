@@ -40,7 +40,7 @@ def cmp_last_digit(a,b):
     '''
     return cmp_standard(a%10,b%10)
 
-def _merged(xs, ys, cmp):
+def _merged(xs, ys, cmp = cmp_standard):
     '''
     Assumes that both xs and ys are sorted,
     and returns a new list containing the elements of both xs and ys.
@@ -72,7 +72,7 @@ def _merged(xs, ys, cmp):
     return xsys
 
 
-def merge_sorted(xs, cmp):
+def merge_sorted(xs, cmp = cmp_standard):
 
     if len(xs) == 0 or len(xs) == 1:
         return xs
@@ -82,10 +82,10 @@ def merge_sorted(xs, cmp):
         lefthalf = xs[0:mid]
         righthalf = xs[mid:]
         
-        one = merge_sorted(lefthalf,cmp)
-        two = merge_sorted(righthalf,cmp)
+        one = merge_sorted(lefthalf,cmp = cmp)
+        two = merge_sorted(righthalf,cmp = cmp)
         
-        return _merged(one,two, cmp)
+        return _merged(one,two, cmp = cmp)
 
 def quick_sorted(xs, cmp=cmp_standard):
     '''
