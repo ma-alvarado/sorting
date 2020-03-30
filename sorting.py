@@ -110,6 +110,18 @@ def quick_sorted(xs, cmp=cmp_standard):
     
     This is a test
     '''
+    if len(xs) == 0 or len(xs) == 1:
+        return xs
+
+    else:
+        rvalue = random.randint(0,len(xs))
+        lefthalf = xs[0:rvalue]
+        righthalf = xs[rvalue:]
+        
+        one = merge_sorted(lefthalf,cmp = cmp)
+        two = merge_sorted(righthalf,cmp = cmp)
+        
+        return _merged(one,two, cmp = cmp)
 
 
 def quick_sort(xs, cmp=cmp_standard):
